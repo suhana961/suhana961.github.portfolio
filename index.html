@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUHANA.N — Python Django Developer | Neon Yellow &amp; Obsidian</title>
+  <meta
+    name="description"
+    content="SUHANA.N — Python Django Developer. Building scalable backend architectures, clean RESTful APIs, and practical AI/IoT integrations."
+  />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%23000000' stroke='%23FAFF00' stroke-width='1.5'/%3E%3Cpath d='M13 18C13 15.5 15.2 14 18 14C20.8 14 22.8 15.5 22.8 17.8C22.8 21.8 13 20.4 13 25C13 28 15.2 29.5 18.2 29.5C21 29.5 22.8 27.8 22.8 27.8' stroke='%23FAFF00' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M26 29.5V14.5L34.5 29.5V14.5' stroke='%23FAFF00' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@700;900&family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@900&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700;1,800&family=Space+Grotesk:wght@400;500;600;700&family=Syncopate:wght@700&family=Syne:wght@800&family=Unbounded:wght@800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ultra-Premium Cinematic Entrance Screen -->
+  <div class="cinematic-intro" id="cinematic-intro" role="dialog" aria-modal="true" aria-label="Cinematic Portfolio Intro">
+    <div class="intro-cinema-ambient" aria-hidden="true"></div>
+    <canvas id="intro-particles-canvas" class="intro-particles-canvas" aria-hidden="true"></canvas>
+    
+    <div class="intro-cinema-stage">
+      <!-- Anamorphic Laser Horizon Line -->
+      <div class="intro-laser-horizon" aria-hidden="true"></div>
+
+      <!-- Kicker Name -->
+      <div class="intro-cinema-kicker">SUHANA.N</div>
+
+      <!-- Monumental Typography -->
+      <div class="intro-title-wrap">
+        <h1 class="intro-cinema-title" data-text="PORTFOLIO">PORTFOLIO</h1>
+      </div>
+
+      <!-- Subtitle & Role Indicator -->
+      <div class="intro-cinema-role">
+        <span class="intro-status-beacon" aria-hidden="true"></span>
+        <span>PYTHON <span class="text-neon">DJANGO</span> DEVELOPER</span>
+        <span class="intro-divider" aria-hidden="true">&bull;</span>
+        <span class="intro-sub-tech">BACKEND ARCHITECTURE</span>
+      </div>
+
+      <!-- Subtle Cinematic Loading Line -->
+      <div class="intro-cinema-progress" aria-hidden="true">
+        <div class="intro-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Top-Right Skip Option -->
+    <button type="button" class="intro-skip-btn" id="intro-skip-btn" aria-label="Skip Introduction">
+      <span>SKIP INTRO</span>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Subtle Ambient Cursor Glow -->
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Scroll Progress Bar & Continuous Neon Particle Flow Canvas -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <canvas id="stream-3d" class="stream-3d" aria-hidden="true"></canvas>
+
+  <!-- Top Streaming Navbar -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="#hero" class="stream-logo" aria-label="SUHANA.N Developer Portfolio">
+          <span class="sn-monogram" aria-hidden="true">
+            <svg viewBox="0 0 44 44" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="8" fill="#000000" stroke="#DFFF00" stroke-width="1.4"/>
+              <path d="M13 18C13 15.5 15.2 14 18 14C20.8 14 22.8 15.5 22.8 17.8C22.8 21.8 13 20.4 13 25C13 28 15.2 29.5 18.2 29.5C21 29.5 22.8 27.8 22.8 27.8" stroke="#DFFF00" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M26 29.5V14.5L34.5 29.5V14.5" stroke="#DFFF00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#DFFF00"/>
+  <stop offset="100%" stop-color="#EEFF41"/>
+</linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="logo-text">SUHANA.N</span>
+        </a>
+        <nav class="stream-nav" id="stream-nav" aria-label="Primary Navigation">
+          <a href="#hero" class="nav-item active">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#originals" class="nav-item">Projects</a>
+          <a href="#episodes" class="nav-item">Experience</a>
+          <a href="#skills" class="nav-item">Skills</a>
+          <a href="#credits" class="nav-item">Education</a>
+          <a href="#contact" class="nav-item">Contact</a>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button class="shortcut-btn" id="btn-replay-intro" type="button" title="Replay Cinematic Dotted Neon Intro">
+          <span class="kbd">&#9654;</span> Intro
+        </button>
+        <button class="shortcut-btn" id="open-code-btn" type="button" title="Interactive Python Console & Terminal (Press P)">
+          <span class="kbd">P</span> Terminal
+        </button>
+        <button class="shortcut-btn" id="open-overview-btn" type="button" title="Quick Recruiter Summary (Press R)">
+          <span class="kbd">R</span> Brief
+        </button>
+        <a href="#contact" class="btn btn-lime btn-sm">Hire Me</a>
+        <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle Menu" aria-expanded="false">
+          &#9776;
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section: Luxury Cinematic Developer Portfolio -->
+    <section class="hero-billboard hero-cinema-dev" id="hero">
+      <div class="billboard-backdrop" aria-hidden="true"></div>
+      
+      <!-- Very Soft Radial Neon Yellow Illumination Behind Name -->
+      <div class="hero-radial-glow" aria-hidden="true"></div>
+
+      <!-- Centered Cinematic Hero Stage -->
+      <div class="container billboard-stage billboard-stage-centered">
+        <div class="billboard-content billboard-centered-content">
+
+          <!-- Recruiter Indicator / Status Disclaimer Badge -->
+          <div class="availability-indicator" role="status" aria-label="Job Availability">
+            <span class="n-badge" aria-hidden="true">SN</span>
+            <span class="radar-ping-wrap" aria-hidden="true">
+              <span class="radar-dot"></span>
+              <span class="radar-wave"></span>
+            </span>
+            <span class="availability-label">OPEN TO PYTHON DEVELOPER OPPORTUNITIES</span>
+          </div>
+
+          <!-- 1. Small Uppercase Kicker -->
+          <p class="hero-hello">HELLO, I'M</p>
+
+          <!-- 2. Main Visual Focus: SUHANA.N with Crisp White & Electric Neon Yellow Accent + Animated Neon Underline -->
+          <h1 class="hero-name-cinema" aria-label="SUHANA.N">
+            <span class="hero-name-white">SUHANA</span><span class="hero-name-neon">.N</span>
+            <span class="hero-neon-underline" aria-hidden="true"></span>
+          </h1>
+
+          <!-- 3. Subtitle: PYTHON DJANGO DEVELOPER -->
+          <p class="hero-role-title">PYTHON <span class="text-neon">DJANGO</span> DEVELOPER</p>
+
+          <!-- 4. Thin Decorative Divider with Minimal Coding Icon -->
+          <div class="hero-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-icon">
+              <svg width="20" height="14" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 3 1 8 6 13"></polyline>
+                <line x1="14" y1="2" x2="10" y2="14"></line>
+                <polyline points="18 3 23 8 18 13"></polyline>
+              </svg>
+            </span>
+            <span class="divider-line"></span>
+          </div>
+
+          <!-- 5. Tagline -->
+          <p class="hero-tagline">
+            &ldquo;Turning <span class="text-neon">ideas</span> into <span class="text-neon">intelligent digital experiences</span>.&rdquo;
+          </p>
+
+          <!-- 6. Technology Badges: Python | Django | Django REST Framework | MySQL -->
+          <div class="hero-tech-strip" aria-label="Core Technical Proficiencies">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge-sep" aria-hidden="true">|</span>
+            <span class="tech-badge">Django</span>
+            <span class="tech-badge-sep" aria-hidden="true">|</span>
+            <span class="tech-badge">Django REST Framework</span>
+            <span class="tech-badge-sep" aria-hidden="true">|</span>
+            <span class="tech-badge">MySQL</span>
+          </div>
+
+          <!-- 7. Short Philosophy Description / Disclaimer Statement -->
+          <p class="billboard-synopsis">
+            Building practical applications with Python, Django and REST APIs. Specializing in robust backend architectures, clean RESTful APIs, and structured database-driven systems.
+          </p>
+
+          <!-- 8. Buttons: Explore Projects | GitHub | LinkedIn -->
+          <div class="billboard-actions">
+            <a href="#originals" class="btn btn-lime hero-action-btn" title="Explore Featured Projects">
+              <span class="btn-icon" aria-hidden="true">&#9654;</span>
+              <span>Explore Projects</span>
+            </a>
+            <a
+              href="https://github.com/suhana961"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline hero-action-btn"
+              title="Visit GitHub Profile (suhana961)"
+            >
+              <svg class="btn-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/suhana-noushad/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline hero-action-btn"
+              title="Visit LinkedIn Profile"
+            >
+              <svg class="btn-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <!-- 8. Auxiliary Links (Resume Download, Terminal, Recruiter Brief) -->
+          <div class="hero-aux-strip">
+            <a
+              href="assets/Suhana_N_Python_Developer_Resume.pdf"
+              download="Suhana_N_Python_Developer_Resume.pdf"
+              class="aux-link"
+              id="hero-download-resume-btn"
+              title="Download SUHANA.N - Python Developer Resume"
+            >
+              <span class="aux-icon">&#128196;</span> Download Resume
+            </a>
+            <span class="aux-sep" aria-hidden="true">&bull;</span>
+            <button class="aux-btn" id="hero-code-btn" type="button" title="Open Interactive Python Console (Press P)">
+              <span class="aux-kbd">P</span> Terminal
+            </button>
+            <span class="aux-sep" aria-hidden="true">&bull;</span>
+            <button class="aux-btn" id="play-brief-btn" type="button" title="View Recruiter Brief (Press R)">
+              <span class="aux-kbd">R</span> Brief
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cinematic Transition into the About section -->
+      <div class="hero-bottom-transition" aria-hidden="true"></div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About Me">
+        <span class="scroll-cue-text">Scroll to Explore</span>
+        <span class="scroll-arrow" aria-hidden="true">&#8595;</span>
+      </a>
+    </section>
+
+    <!-- Storyline: About Me -->
+    <section class="shelf-section" id="about">
+      <div class="container">
+        <div class="shelf-header">
+          <div>
+            <span class="shelf-kicker">PROFILE &bull; DOSSIER</span>
+            <h2 class="shelf-title">About Me</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-story">
+            <span class="stack-cat">Software Engineer &bull; Backend Architect</span>
+            <h3>Bridging Clean Python Backends with Real-World Systems</h3>
+            <p>
+              I am <strong>SUHANA.N</strong>, a B.Tech Electronics and Communication Engineering graduate from Mar
+              Baselios College of Engineering and Technology (2022–2026) driven by a strong passion for
+              <strong>Python</strong>, <strong>Django</strong>, and full-stack software engineering.
+            </p>
+            <p>
+              Having worked across both web applications and embedded/ML builds — from MySQL-backed academic platforms
+              to 32-node IoT spoofing mitigation models and wearable speech-to-text glasses — I bring structured
+              problem-solving and a hands-on engineering mindset to backend API design and AI integration.
+            </p>
+            <div class="chip-wrap">
+              <span class="chip chip-hot">Python &amp; OOP</span>
+              <span class="chip chip-hot">Django &amp; DRF</span>
+              <span class="chip">MySQL &amp; CRUD</span>
+              <span class="chip">HTML5 / CSS3</span>
+              <span class="chip">ML &amp; IoT</span>
+            </div>
+          </div>
+
+          <div class="about-facts">
+            <span class="stack-cat">Dossier Highlights</span>
+            <h3>Quick Facts</h3>
+            <ul class="lang-rows">
+              <li><span>Target Role</span><span class="lang-level">Python Developer</span></li>
+              <li><span>Location</span><span class="lang-level">Thiruvananthapuram, India</span></li>
+              <li><span>Education</span><span class="lang-level">B.Tech ECE (8.37 CGPA)</span></li>
+              <li><span>Currently</span><span class="lang-level">Luminar Technolab</span></li>
+              <li><span>Languages</span><span class="lang-level">EN / ML / HI</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Originals Row: Featured Projects -->
+    <section class="shelf-section" id="originals">
+      <div class="container">
+        <div class="shelf-header">
+          <div>
+            <span class="shelf-kicker">SELECTED WORKS</span>
+            <h2 class="shelf-title">Featured Projects</h2>
+          </div>
+          <div class="genre-filters" role="group" aria-label="Filter originals">
+            <button class="genre-pill active" data-filter="all" type="button">All Projects</button>
+            <button class="genre-pill" data-filter="python" type="button">Python &amp; Django</button>
+            <button class="genre-pill" data-filter="ml" type="button">ML &amp; Security</button>
+            <button class="genre-pill" data-filter="iot" type="button">IoT &amp; Speech AI</button>
+            <button class="genre-pill" data-filter="mylist" id="mylist-filter-btn" type="button">
+              Shortlist (<span id="mylist-count">0</span>)
+            </button>
+          </div>
+        </div>
+
+        <div class="originals-grid">
+          <!-- Project 1: Cake Store Management System -->
+          <article class="poster-card poster-python" data-category="python" data-original="cake-store" tabindex="0">
+            <div class="poster-art poster-art-cakes">
+              <div class="art-badge-wrap">
+                <span class="poster-brand">DRF REST API</span>
+                <span class="poster-tech-pill">JWT &bull; MySQL</span>
+              </div>
+              <span class="poster-rank">01</span>
+            </div>
+            <div class="poster-body">
+              <div class="poster-meta">
+                <span class="rating-tag">Backend Architecture &bull; REST API</span>
+              </div>
+              <h3>Cake Store Management System</h3>
+              <div class="project-specs">
+                <p class="project-problem"><strong>Problem:</strong> Insecure bakery inventory control and lack of scalable category-driven catalog endpoints.</p>
+                <p class="project-features"><strong>Features:</strong> Full CRUD DRF ModelViewSets, nested serializers, relational MySQL mapping, JWT auth protection &amp; image uploads.</p>
+              </div>
+              <div class="poster-tags">
+                <span>Python</span>
+                <span>Django</span>
+                <span>DRF</span>
+                <span>MySQL</span>
+                <span>JWT Auth</span>
+              </div>
+              <div class="poster-actions">
+                <button class="btn btn-lime btn-xs inspect-original" data-original="cake-store" type="button">
+                  &#9654; View Architecture
+                </button>
+                <button class="btn btn-glass btn-xs mylist-toggle" data-id="cake-store" type="button">
+                  + Shortlist
+                </button>
+                <a
+                  href="https://github.com/suhana961"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="card-ext"
+                >GitHub &nearr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Study App -->
+          <article class="poster-card poster-python" data-category="python" data-original="study-app" tabindex="0">
+            <div class="poster-art poster-art-study">
+              <div class="art-badge-wrap">
+                <span class="poster-brand">DJANGO FULL STACK</span>
+                <span class="poster-tech-pill">CRUD &bull; MySQL</span>
+              </div>
+              <span class="poster-rank">02</span>
+            </div>
+            <div class="poster-body">
+              <div class="poster-meta">
+                <span class="rating-tag">Web Application &bull; Academic Portal</span>
+              </div>
+              <h3>Study App &mdash; Learning Resource System</h3>
+              <div class="project-specs">
+                <p class="project-problem"><strong>Problem:</strong> Fragmented student study resources and complex cross-subject document retrieval.</p>
+                <p class="project-features"><strong>Features:</strong> Dynamic MVT architecture, MySQL relational foreign-key schema, notes organization, and collection indexing.</p>
+              </div>
+              <div class="poster-tags">
+                <span>Python</span>
+                <span>Django</span>
+                <span>MySQL</span>
+                <span>HTML5 / CSS3</span>
+                <span>ORM</span>
+              </div>
+              <div class="poster-actions">
+                <button class="btn btn-lime btn-xs inspect-original" data-original="study-app" type="button">
+                  &#9654; View Architecture
+                </button>
+                <button class="btn btn-glass btn-xs mylist-toggle" data-id="study-app" type="button">
+                  + Shortlist
+                </button>
+                <a
+                  href="https://github.com/suhana961"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="card-ext"
+                >GitHub &nearr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: IoT ML Spoofing Mitigation -->
+          <article class="poster-card poster-ml" data-category="python ml" data-original="iot-ml" tabindex="0">
+            <div class="poster-art poster-art-iotml">
+              <div class="art-badge-wrap">
+                <span class="poster-brand">ML &amp; SECURITY</span>
+                <span class="poster-tech-pill">NS-3 &bull; Isolation Forest</span>
+              </div>
+              <span class="poster-rank">03</span>
+            </div>
+            <div class="poster-body">
+              <div class="poster-meta">
+                <span class="rating-tag">Machine Learning &bull; Cybersecurity</span>
+              </div>
+              <h3>IoT Shielding &amp; Spoofing Mitigation</h3>
+              <div class="project-specs">
+                <p class="project-problem"><strong>Problem:</strong> Smart city IoT nodes exposed to malicious IP/MAC address spoofing and rogue data injection.</p>
+                <p class="project-features"><strong>Features:</strong> 32-node NS-3 &amp; NetAnim simulation, FlowMonitor telemetry extraction, Isolation Forest &amp; Random Forest anomaly classifiers.</p>
+              </div>
+              <div class="poster-tags">
+                <span>Python</span>
+                <span>Isolation Forest</span>
+                <span>Random Forest</span>
+                <span>NS-3</span>
+                <span>NetAnim</span>
+              </div>
+              <div class="poster-actions">
+                <button class="btn btn-lime btn-xs inspect-original" data-original="iot-ml" type="button">
+                  &#9654; View Architecture
+                </button>
+                <button class="btn btn-glass btn-xs mylist-toggle" data-id="iot-ml" type="button">
+                  + Shortlist
+                </button>
+                <a
+                  href="https://github.com/suhana961"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="card-ext"
+                >GitHub &nearr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: VERBALENS -->
+          <article class="poster-card poster-iot" data-category="iot" data-original="verbalens" tabindex="0">
+            <div class="poster-art poster-art-verbalens">
+              <div class="art-badge-wrap">
+                <span class="poster-brand">EMBEDDED SPEECH AI</span>
+                <span class="poster-tech-pill">ESP32 &bull; Deepgram</span>
+              </div>
+              <span class="poster-rank">04</span>
+            </div>
+            <div class="poster-body">
+              <div class="poster-meta">
+                <span class="rating-tag">Assistive Tech &bull; Real-time AI</span>
+              </div>
+              <h3>VERBALENS &mdash; Speech-to-Text Glasses</h3>
+              <div class="project-specs">
+                <p class="project-problem"><strong>Problem:</strong> Communication isolation faced by deaf and hard-of-hearing individuals during live interpersonal speech.</p>
+                <p class="project-features"><strong>Features:</strong> ESP32 wireless audio streamer, I2S MEMS microphone capture, Deepgram cloud transcription API, and micro-OLED HUD display.</p>
+              </div>
+              <div class="poster-tags">
+                <span>ESP32</span>
+                <span>Deepgram API</span>
+                <span>I2S MEMS</span>
+                <span>Python</span>
+                <span>OLED</span>
+              </div>
+              <div class="poster-actions">
+                <button class="btn btn-lime btn-xs inspect-original" data-original="verbalens" type="button">
+                  &#9654; View Architecture
+                </button>
+                <button class="btn btn-glass btn-xs mylist-toggle" data-id="verbalens" type="button">
+                  + Shortlist
+                </button>
+                <a
+                  href="https://github.com/suhana961"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="card-ext"
+                >GitHub &nearr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Episodes Row: Internships & Experience -->
+    <section class="shelf-section" id="episodes">
+      <div class="container">
+        <div class="shelf-header">
+          <div>
+            <span class="shelf-kicker">CAREER TIMELINE</span>
+            <h2 class="shelf-title">Experience &amp; Internships</h2>
+          </div>
+          <span class="season-label">4 Key Milestones</span>
+        </div>
+
+        <div class="episodes-list">
+          <article class="episode-row" data-episode="ep1">
+            <div class="ep-num">1</div>
+            <div class="ep-thumb ep-thumb-live">
+              <span class="ep-badge">ACTIVE ROLE</span>
+              <span class="ep-code">2026</span>
+            </div>
+            <div class="ep-info">
+              <div class="ep-top">
+                <h3>AI-Integrated Python Django Full Stack Developer Intern &mdash; Luminar Technolab</h3>
+                <span class="ep-runtime">Jul 2026 – Present</span>
+              </div>
+              <p>
+                Developing scalable web apps using Python, Django, HTML, CSS, and MySQL. Building
+                Django models, MySQL operations, REST APIs, debugging workflows, and Python-based AI integrations.
+              </p>
+            </div>
+            <button class="ep-play-btn inspect-episode" data-episode="ep1" type="button" aria-label="Inspect Episode 1">
+              &#9654;
+            </button>
+          </article>
+
+          <article class="episode-row" data-episode="ep2">
+            <div class="ep-num">2</div>
+            <div class="ep-thumb">
+              <span class="ep-code">2025</span>
+            </div>
+            <div class="ep-info">
+              <div class="ep-top">
+                <h3>Full Stack Development Intern &mdash; ICT Academy of Kerala</h3>
+                <span class="ep-runtime">Jun 2025 – Jul 2025</span>
+              </div>
+              <p>
+                Developed a Movie Application as part of the internship. Implemented movie information display, core
+                application functionalities, and practical REST API integration.
+              </p>
+            </div>
+            <button class="ep-play-btn inspect-episode" data-episode="ep2" type="button" aria-label="Inspect Episode 2">
+              &#9654;
+            </button>
+          </article>
+
+          <article class="episode-row" data-episode="ep3">
+            <div class="ep-num">3</div>
+            <div class="ep-thumb">
+              <span class="ep-code">2024</span>
+            </div>
+            <div class="ep-info">
+              <div class="ep-top">
+                <h3>Fusion 360 Training Intern &mdash; BIMSLAB</h3>
+                <span class="ep-runtime">Jul 2024</span>
+              </div>
+              <p>
+                Gained hands-on exposure to 3D CAD modelling, parametric design, and Autodesk Fusion 360 engineering
+                workflows.
+              </p>
+            </div>
+            <button class="ep-play-btn inspect-episode" data-episode="ep3" type="button" aria-label="Inspect Episode 3">
+              &#9654;
+            </button>
+          </article>
+
+          <article class="episode-row" data-episode="ep4">
+            <div class="ep-num">4</div>
+            <div class="ep-thumb">
+              <span class="ep-code">2023</span>
+            </div>
+            <div class="ep-info">
+              <div class="ep-top">
+                <h3>Telecom Training &mdash; BSNL</h3>
+                <span class="ep-runtime">Oct 2023</span>
+              </div>
+              <p>
+                Built foundational understanding of telecommunications systems, networking concepts, and communication
+                infrastructure.
+              </p>
+            </div>
+            <button class="ep-play-btn inspect-episode" data-episode="ep4" type="button" aria-label="Inspect Episode 4">
+              &#9654;
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cast & Tech Stack -->
+        <!-- Technical Arsenal / Skills (Constellation of Symbols) -->
+        <!-- Technical Arsenal / Skills (Constellation of Symbols) -->
+    <section class="shelf-section skills-constellation-section" id="skills">
+      <div class="container">
+        <div class="skills-center-header">
+          <h2 class="skills-main-title">Skills</h2>
+          <p class="skills-subtitle">
+            Making apps with <span class="text-neon">modern technologies</span>.
+          </p>
+        </div>
+
+        <!-- The Inverted Pyramid / Shield Symbol Cluster (6 -> 4 -> 3 -> 2 -> 1) --> / Shield Symbol Cluster (6 -> 4 -> 3 -> 2 -> 1) -->
+        <div class="skills-pyramid-container" id="skills-cluster" aria-label="Interactive Tech Stack Badges">
+          
+          <!-- Row 1: 6 Badges (Frontend HTML/CSS + Primary Databases & Core Backend) -->
+          <div class="skills-cluster-row row-1">
+            <!-- HTML5 (Frontend) -->
+            <div class="tech-symbol-badge" data-category="frontend" data-name="HTML5" data-role="Semantic Web Markup" data-desc="Semantic document structuring, forms, accessible web markup standards, modern web compliance." tabindex="0" role="button" aria-label="HTML5">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><path fill="#E34F26" d="M19.4 113.8L8.7 0h110.6l-10.7 113.7L64 128"/><path fill="#EF652A" d="M64 117.8l37.2-11.8 9-95.2H64"/><path fill="#EBEBEB" d="M64 53.6H46.4l-1.2-13.6H64V26.4H30.4l3.6 40.8H64v-13.6zm0 35.8l-.1.1-15.6-4.2-1-11.2H33.7l2 22.4 28.3 7.8V89.4z"/><path fill="#FFFFFF" d="M64 53.6h17.6l-1.6 18.3-16 4.3v13.6l28.2-7.8 3.7-42H64v13.6zm0-27.2v13.6h31.2l1.2-13.6H64z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">HTML5</div>
+            </div>
+
+            <!-- CSS3 (Frontend) -->
+            <div class="tech-symbol-badge" data-category="frontend" data-name="CSS3" data-role="Modern Styling & Grid/Flex" data-desc="Responsive layouts, Flexbox, Grid, custom properties, UI animations, and keyframe motion." tabindex="0" role="button" aria-label="CSS3">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><path fill="#1572B6" d="M19.4 113.8L8.7 0h110.6l-10.7 113.7L64 128"/><path fill="#33A9DC" d="M64 117.8l37.2-11.8 9-95.2H64"/><path fill="#EBEBEB" d="M64 53.6H46.4l-1.2-13.6H64V26.4H30.4l3.6 40.8H64v-13.6zm0 35.8l-.1.1-15.6-4.2-1-11.2H33.7l2 22.4 28.3 7.8V89.4z"/><path fill="#FFFFFF" d="M64 53.6h17.6l-1.6 18.3-16 4.3v13.6l28.2-7.8 3.7-42H64v13.6zm0-27.2v13.6h31.2l1.2-13.6H64z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">CSS3</div>
+            </div>
+
+            <!-- MySQL (Database) -->
+            <div class="tech-symbol-badge badge-featured" data-category="database" data-name="MySQL" data-role="Primary Relational Database" data-desc="Schema design, indexes, foreign keys, normalization, joins, high-efficiency queries." tabindex="0" role="button" aria-label="MySQL">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><rect width="128" height="128" rx="20" fill="#003542"/><path fill="#00758F" d="M64 12C35.3 12 12 35.3 12 64s23.3 52 52 52 52-23.3 52-52S92.7 12 64 12zm28.7 78.3c-2.3 2-6.5 3.3-11.3 3.3-9.5 0-14.8-4.9-14.8-13.5 0-9.8 6.9-15.6 16.5-15.6 3.6 0 7.3.8 9.6 1.9v23.9zm-38.4-1.9c-2.6 1.3-6.1 2-9.6 2-7.4 0-11.5-3.6-11.5-10.2 0-7.8 5.7-12.7 13.5-12.7 3.1 0 5.8.6 7.6 1.4v19.5z"/><path fill="#F29111" d="M86.4 48.8c-2.8-1.5-7.7-2.7-13.7-2.7-15.6 0-25.2 8.7-25.2 22.5 0 13.9 9.3 21.8 23.9 21.8 6.4 0 11.8-1.6 15-3.4V74.2c-3.1 1.6-7.3 2.7-12.1 2.7-8.2 0-12.9-4.2-12.9-11 0-7.1 5.3-11.4 13.3-11.4 4.5 0 8.6.9 11.7 2.1V48.8z"/><text x="64" y="112" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="20" text-anchor="middle">MySQL</text></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">MySQL</div>
+            </div>
+
+            <!-- SQL (Database) -->
+            <div class="tech-symbol-badge" data-category="database" data-name="SQL" data-role="Structured Queries & Schema" data-desc="Complex query execution, relational integrity, data migrations, transactional aggregation." tabindex="0" role="button" aria-label="SQL">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><rect width="128" height="128" rx="20" fill="#0E2D44"/><ellipse cx="64" cy="36" rx="42" ry="15" fill="#DFFF00"/><path fill="none" stroke="#DFFF00" stroke-width="8" stroke-linecap="round" d="M22 36v50c0 8.3 18.8 15 42 15s42-6.7 42-15V36"/><path fill="none" stroke="#DFFF00" stroke-width="8" stroke-linecap="round" d="M22 61c0 8.3 18.8 15 42 15s42-6.7 42-15"/><text x="64" y="96" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="30" text-anchor="middle">SQL</text></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">SQL</div>
+            </div>
+
+            <!-- Python (Starring Role) -->
+            <div class="tech-symbol-badge badge-featured" data-category="backend" data-name="Python" data-role="Primary Language" data-desc="OOP, functional programming, data structures, algorithms, robust exception handling." tabindex="0" role="button" aria-label="Python">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><path fill="#3776AB" d="M63.5 6.7c-17 0-26.6 7.6-26.6 20.2v14.7h27.2v3.7H21.5C8.9 45.3 0 54.4 0 71.3c0 17 8.5 25.9 21.5 25.9h9.1V84.4c0-12.7 9.8-22.3 22.8-22.3h27.1V34c0-14.7-10.4-27.3-37-27.3zm-13.8 8.1c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5z"/><path fill="#FFD43B" d="M64.5 121.3c17 0 26.6-7.6 26.6-20.2V86.4H63.9v-3.7h42.6c12.6 0 21.5-9.1 21.5-26 0-17-8.5-25.9-21.5-25.9h-9.1v12.8c0 12.7-9.8 22.3-22.8 22.3H47.5V94c0 14.7 10.4 27.3 37 27.3zm13.8-8.1c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">Python</div>
+            </div>
+
+            <!-- Django (Starring Role) -->
+            <div class="tech-symbol-badge badge-featured" data-category="backend" data-name="Django" data-role="Enterprise Web Framework" data-desc="MVT architecture, ORM query optimization, signals, migrations, auth system, middleware." tabindex="0" role="button" aria-label="Django">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><rect width="128" height="128" rx="20" fill="#092E20"/><path fill="#FFFFFF" d="M68.5 24h15v47.8c0 15.2-7.5 23.4-21.7 23.4-4.8 0-8.9-.7-12-1.9l2.8-12.4c2.2.8 4.7 1.3 7.6 1.3 7.4 0 11.2-4.1 11.2-12.3V24zm-22.8 26.3v27c-3.1 1.7-6.8 2.6-11.2 2.6-8.2 0-12.5-4.8-12.5-13.7 0-9.6 5.3-14.5 14.1-14.5 3.5 0 6.8.6 9.6 1.6V50.3zm0-13.5c-4.2-1.3-9.5-2-15.3-2-16.7 0-26.4 9.1-26.4 24.3 0 16 9.4 24.5 24.6 24.5 5.7 0 11.1-.9 14.9-2.3v10.9h14.8V36.8H45.7z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">Django</div>
+            </div>
+          </div>
+
+          <!-- Row 2: 4 Badges (Backend APIs & Containerization) -->
+          <div class="skills-cluster-row row-2">
+            <!-- Django REST Framework -->
+            <div class="tech-symbol-badge badge-featured" data-category="backend" data-name="Django REST Framework" data-role="RESTful Web Services" data-desc="ModelSerializers, ViewSets, token/session auth, pagination, filtering, throttling." tabindex="0" role="button" aria-label="Django REST Framework">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><rect width="128" height="128" rx="20" fill="#800000"/><text x="64" y="50" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="30" text-anchor="middle">DJANGO</text><text x="64" y="94" fill="#DFFF00" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="38" text-anchor="middle">REST</text></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">DRF</div>
+            </div>
+
+            <!-- REST APIs -->
+            <div class="tech-symbol-badge" data-category="backend" data-name="RESTful APIs" data-role="API Design & Contracts" data-desc="JSON contracts, HTTP status standards, CRUD patterns, error payloads, webhooks." tabindex="0" role="button" aria-label="RESTful APIs">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><rect width="128" height="128" rx="20" fill="#141414" stroke="#DFFF00" stroke-width="5"/><path stroke="#DFFF00" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" d="M42 46L24 64l18 18M86 46l18 18-18 18M72 36L56 92"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">REST APIs</div>
+            </div>
+
+            <!-- JWT Authentication -->
+            <div class="tech-symbol-badge" data-category="backend" data-name="JWT Auth" data-role="Secure Token Auth" data-desc="Stateless authentication, access/refresh tokens, signature verification, role permissions." tabindex="0" role="button" aria-label="JWT Authentication">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><circle cx="64" cy="64" r="54" fill="#FB015B"/><circle cx="64" cy="64" r="38" fill="#141414"/><path fill="#DFFF00" d="M64 34v60l30-30z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">JWT Auth</div>
+            </div>
+
+            <!-- Docker -->
+            <div class="tech-symbol-badge" data-category="tools" data-name="Docker" data-role="Containerization" data-desc="Containerized services, Dockerfile, docker-compose, reproducible environments." tabindex="0" role="button" aria-label="Docker">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><path fill="#2496ED" d="M123.6 57.6c-1.3-.9-9.9-6.3-23.7-1.5-2.5-4.2-6.3-7.5-11-9.7l-4.5 10.3c6.8 3 11 8.8 11.6 15.3-3.6 2-9.4 3.5-16.7 3.5H11.5c-2.3 9.4-.4 20.3 5.4 28.5 9.2 13 25.5 20 45.4 20 37.1 0 63.6-23.1 63.6-54.8 0-4.3-.7-8.2-2.3-11.6zM28.4 49.3h10.9v10.9H28.4V49.3zm14.5 0h10.9v10.9H42.9V49.3zm14.5 0h10.9v10.9H57.4V49.3zm-29 14.5h10.9v10.9H28.4V63.8zm14.5 0h10.9v10.9H42.9V63.8zm14.5 0h10.9v10.9H57.4V63.8zm14.5 0h10.9v10.9H71.9V63.8zm-14.5-29h10.9v10.9H57.4V34.8zm14.5 0h10.9v10.9H71.9V34.8z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">Docker</div>
+            </div>
+          </div>
+
+          <!-- Row 3: 3 Badges (Version Control & Testing) -->
+          <div class="skills-cluster-row row-3">
+            <!-- Git -->
+            <div class="tech-symbol-badge" data-category="tools" data-name="Git" data-role="Distributed Version Control" data-desc="Branching workflows, commits, rebasing, merge resolutions, Git CLI automation." tabindex="0" role="button" aria-label="Git">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><path fill="#F05032" d="M125.6 57.3L70.7 2.4c-3.2-3.2-8.4-3.2-11.6 0L42.5 19.1l14.7 14.7c3.4-1.2 7.4-.4 10.1 2.3 2.7 2.7 3.5 6.7 2.3 10.1l14.2 14.2c3.4-1.2 7.4-.4 10.1 2.3 3.9 3.9 3.9 10.2 0 14.1s-10.2 3.9-14.1 0c-2.9-2.9-3.7-7.2-2.1-10.7L64.2 52.6v33.4c.8.4 1.6 1 2.2 1.6 3.9 3.9 3.9 10.2 0 14.1s-10.2 3.9-14.1 0-3.9-10.2 0-14.1c1.1-1.1 2.4-1.8 3.8-2.2V51.8c-1.4-.4-2.7-1.1-3.8-2.2-2.9-2.9-3.7-7.2-2.1-10.7L35.7 24.4 2.4 57.7c-3.2 3.2-3.2 8.4 0 11.6l54.9 54.9c3.2 3.2 8.4 3.2 11.6 0l56.7-56.7c3.2-3.2 3.2-8.4 0-10.2z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">Git</div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="tech-symbol-badge" data-category="tools" data-name="GitHub" data-role="Repository & Code Review" data-desc="Pull requests, branch protections, issue tracking, CI integration, collaboration." tabindex="0" role="button" aria-label="GitHub">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><path fill="#FFFFFF" d="M64 5.3C29.7 5.3 2 33 2 67.3c0 27.4 17.8 50.7 42.5 58.9 3.1.6 4.2-1.3 4.2-3 0-1.5-.1-6.4-.1-11.7-17.2 3.7-20.9-7.3-20.9-7.3-2.8-7.2-6.9-9.1-6.9-9.1-5.6-3.8.4-3.8.4-3.8 6.2.4 9.5 6.4 9.5 6.4 5.5 9.5 14.5 6.7 18 5.2.6-4 2.2-6.7 4-8.3-13.8-1.6-28.2-6.9-28.2-30.6 0-6.8 2.4-12.3 6.4-16.6-.6-1.6-2.8-7.9.6-16.4 0 0 5.2-1.7 17 6.4 5-1.4 10.3-2.1 15.6-2.1 5.3 0 10.6.7 15.6 2.1 11.8-8.1 17-6.4 17-6.4 3.4 8.5 1.3 14.8.6 16.4 4 4.3 6.4 9.8 6.4 16.6 0 23.8-14.5 29-28.3 30.5 2.2 1.9 4.2 5.7 4.2 11.6 0 8.4-.1 15.2-.1 17.2 0 1.7 1.1 3.7 4.3 3 24.6-8.2 42.4-31.4 42.4-58.9 0-34.3-27.7-62-62-62z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">GitHub</div>
+            </div>
+
+            <!-- Postman -->
+            <div class="tech-symbol-badge" data-category="tools" data-name="Postman" data-role="API Testing & Verification" data-desc="Endpoint testing, automated test scripts, collection runners, environment variables." tabindex="0" role="button" aria-label="Postman">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><rect width="128" height="128" rx="20" fill="#FF6C37"/><path fill="#FFFFFF" d="M38.8 77.2l20.4-20.4c1.1-1.1 2.9-1.1 4 0l8.2 8.2 24.5-24.5c1.1-1.1 2.9-1.1 4 0l8.2 8.2-28.5 28.5-8.2-8.2-18.6 18.6c-1.1 1.1-2.9 1.1-4 0l-4-4c-1.1-1.1-1.1-2.9 0-4z"/><circle cx="89" cy="39" r="8" fill="#FFFFFF"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">Postman</div>
+            </div>
+          </div>
+
+          <!-- Row 4: 2 Badges (Development & AI) -->
+          <div class="skills-cluster-row row-4">
+            <!-- VS Code -->
+            <div class="tech-symbol-badge" data-category="tools" data-name="VS Code" data-role="Primary Editor & Debugger" data-desc="Python debugger, Git lens, linting with Flake8/Black, workspace shortcuts." tabindex="0" role="button" aria-label="VS Code">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><path fill="#007ACC" d="M93.8 123.7l27.5-13.3c3.8-1.8 6.4-5.7 6.4-10V27.6c0-4.3-2.6-8.2-6.4-10L93.8 4.3c-3-1.4-6.5-.9-8.9 1.4L37.7 48.6 17.5 33.2c-2.4-1.8-5.8-1.7-8.1.3L1.9 40c-2.5 2.2-2.5 6.1 0 8.3l17.8 15.7L1.9 79.7c-2.5 2.2-2.5 6.1 0 8.3l7.5 6.5c2.3 2 5.7 2.1 8.1.3l20.2-15.4 47.2 42.9c2.4 2.3 5.9 2.8 8.9 1.4zM95.6 36.4L54.7 64l40.9 27.6V36.4z"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">VS Code</div>
+            </div>
+
+            <!-- Machine Learning -->
+            <div class="tech-symbol-badge" data-category="ai-iot" data-name="Machine Learning" data-role="Anomaly Detection & Modeling" data-desc="Isolation Forest, Random Forest, anomaly classification in IoT networks, model evaluation." tabindex="0" role="button" aria-label="Machine Learning">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="46" height="46" aria-hidden="true"><circle cx="28" cy="64" r="14" fill="#DFFF00"/><circle cx="100" cy="32" r="14" fill="#DFFF00"/><circle cx="100" cy="96" r="14" fill="#DFFF00"/><circle cx="64" cy="64" r="14" fill="#FFFFFF"/><path stroke="#DFFF00" stroke-width="6" stroke-linecap="round" d="M28 64l36 0M64 64l36-32M64 64l36 32"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">ML Models</div>
+            </div>
+          </div>
+
+          <!-- Row 5: 1 Badge (Apex: ESP32 & IoT Edge Hardware) -->
+          <div class="skills-cluster-row row-5">
+            <!-- ESP32 / IoT Hardware -->
+            <div class="tech-symbol-badge badge-featured badge-apex" data-category="ai-iot" data-name="ESP32 &amp; IoT" data-role="Hardware &amp; Wireless Edge" data-desc="Microcontroller firmware, sensor telemetry, network spoofing mitigation, wireless packets." tabindex="0" role="button" aria-label="ESP32 and IoT">
+              <div class="symbol-glass">
+                <svg viewBox="0 0 128 128" width="50" height="50" aria-hidden="true"><rect x="32" y="32" width="64" height="64" rx="10" fill="#141414" stroke="#DFFF00" stroke-width="6"/><path stroke="#DFFF00" stroke-width="6" stroke-linecap="round" d="M18 48h14M18 64h14M18 80h14M96 48h14M96 64h14M96 80h14M48 18v14M64 18v14M80 18v14M48 96v14M64 96v14M80 96v14"/><circle cx="64" cy="64" r="14" fill="#DFFF00"/><path d="M57 64h14M64 57v14" stroke="#000000" stroke-width="4" stroke-linecap="round"/></svg>
+              </div>
+              <div class="symbol-tooltip" aria-hidden="true">ESP32 / IoT</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Category Filter Tabs -->
+        <div class="skills-filter-tabs" role="tablist" aria-label="Filter Technical Skills">
+          <button type="button" class="skill-tab active" data-filter="all">All Stack</button>
+          <button type="button" class="skill-tab" data-filter="backend">Backend &amp; APIs</button>
+          <button type="button" class="skill-tab" data-filter="frontend">Frontend</button>
+          <button type="button" class="skill-tab" data-filter="database">Databases</button>
+          <button type="button" class="skill-tab" data-filter="tools">DevOps &amp; Tools</button>
+          <button type="button" class="skill-tab" data-filter="ai-iot">ML &amp; Hardware</button>
+        </div>
+
+        <!-- Interactive Skill Inspector Card -->
+        <div class="skill-inspector-card" id="skill-inspector" aria-live="polite">
+          <div class="inspector-badge-icon" id="inspector-icon" aria-hidden="true">
+            <svg viewBox="0 0 128 128" width="40" height="40"><path fill="#3776AB" d="M63.5 6.7c-17 0-26.6 7.6-26.6 20.2v14.7h27.2v3.7H21.5C8.9 45.3 0 54.4 0 71.3c0 17 8.5 25.9 21.5 25.9h9.1V84.4c0-12.7 9.8-22.3 22.8-22.3h27.1V34c0-14.7-10.4-27.3-37-27.3zm-13.8 8.1c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5z"/><path fill="#FFD43B" d="M64.5 121.3c17 0 26.6-7.6 26.6-20.2V86.4H63.9v-3.7h42.6c12.6 0 21.5-9.1 21.5-26 0-17-8.5-25.9-21.5-25.9h-9.1v12.8c0 12.7-9.8 22.3-22.8 22.3H47.5V94c0 14.7 10.4 27.3 37 27.3zm13.8-8.1c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/></svg>
+          </div>
+          <div class="inspector-info">
+            <div class="inspector-header">
+              <h4 class="inspector-title" id="inspector-name">Python</h4>
+              <span class="inspector-role" id="inspector-role">Core Backend Language</span>
+            </div>
+            <p class="inspector-desc" id="inspector-desc">
+              Object-Oriented Programming (OOP), modular architecture, exception handling, data structures, and asynchronous background integrations.
+            </p>
+          </div>
+          <div class="inspector-hint">
+            <span class="hint-dot" aria-hidden="true"></span>
+            <span>Hover or tap any symbol</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Credits: Education & Languages -->
+    <section class="shelf-section" id="credits">
+      <div class="container">
+        <div class="shelf-header">
+          <div>
+            <span class="shelf-kicker">ACADEMIC DOSSIER</span>
+            <h2 class="shelf-title">Education &amp; Credentials</h2>
+          </div>
+        </div>
+
+        <div class="credits-grid">
+          <div class="credit-panel">
+            <span class="stack-cat">Degree &bull; 2022 – 2026</span>
+            <h3>B.Tech in Electronics and Communication Engineering</h3>
+            <p class="credit-org">Mar Baselios College of Engineering and Technology</p>
+            <p class="credit-note">
+              Graduating with an <strong>8.37 CGPA</strong>, combining hardware engineering rigor with Python backend
+              and full-stack web development.
+            </p>
+          </div>
+
+          <div class="credit-panel">
+            <span class="stack-cat">Audio &amp; Subtitles</span>
+            <h3>Languages</h3>
+            <ul class="lang-rows">
+              <li><span>English</span><span class="lang-level">Professional</span></li>
+              <li><span>Malayalam</span><span class="lang-level">Native</span></li>
+              <li><span>Hindi</span><span class="lang-level">Proficient</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="shelf-section" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-left">
+            <span class="shelf-kicker">COLLABORATION</span>
+            <h2 class="shelf-title">Let's Build Something Exceptional</h2>
+            <p class="contact-sub">
+              Based in Thiruvananthapuram, Kerala, India. Open to Python Developer roles across backend APIs, Django
+              web applications, and database-driven solutions.
+            </p>
+
+            <div class="contact-items">
+              <div class="contact-row">
+                <div>
+                  <small>Email</small>
+                  <a href="mailto:suhanax264@gmail.com">suhanax264@gmail.com</a>
+                </div>
+                <button class="copy-pill" data-copy="suhanax264@gmail.com" type="button">Copy</button>
+              </div>
+              <div class="contact-row">
+                <div>
+                  <small>Phone</small>
+                  <a href="tel:+917025158604">+91-7025158604</a>
+                </div>
+                <button class="copy-pill" data-copy="+91-7025158604" type="button">Copy</button>
+              </div>
+            </div>
+
+            <div class="contact-links">
+              <a
+                href="https://www.linkedin.com/in/suhana-noushad/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-glass btn-sm"
+              >LinkedIn &nearr;</a>
+              <a
+                href="https://github.com/suhana961"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-glass btn-sm"
+              >GitHub &nearr;</a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <h3>Send an Inquiry</h3>
+            <input type="text" id="sender-name" placeholder="Your Name / Organization" required />
+            <input type="email" id="sender-email" placeholder="Your Email" required />
+            <textarea id="sender-msg" rows="4" placeholder="Tell SUHANA.N about the Python Developer opportunity..." required></textarea>
+            <button type="submit" class="btn btn-lime">Send Inquiry &rarr;</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="stream-footer">
+    <div class="container footer-flex">
+      <span><strong>SUHANA.N</strong> &bull; Python Django Developer Portfolio</span>
+      <span>Press <kbd>R</kbd> Recruiter Brief &bull; <kbd>P</kbd> Terminal &bull; <kbd>Esc</kbd> Close</span>
+    </div>
+  </footer>
+
+  <!-- Detail Modal (Originals / Episodes / Recruiter Brief) -->
+  <div class="modal-overlay" id="detail-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button class="modal-x" id="modal-close" type="button" aria-label="Close modal">&times;</button>
+      <div class="modal-banner">
+        <span class="modal-kicker" id="modal-kicker"></span>
+        <h3 id="modal-title"></h3>
+        <p class="modal-meta" id="modal-meta"></p>
+      </div>
+      <div class="modal-content">
+        <p id="modal-desc"></p>
+        <ul id="modal-bullets" class="modal-list"></ul>
+        <div id="modal-tags" class="chip-wrap"></div>
+        <div class="modal-actions">
+          <a
+            href="https://github.com/suhana961"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-lime btn-sm"
+            id="modal-github"
+          >View on GitHub &nearr;</a>
+          <a href="#contact" class="btn btn-glass btn-sm" id="modal-contact-jump">Contact SUHANA.N</a>
+          <button type="button" class="btn btn-outline btn-sm" id="modal-print-btn">Print / Save PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Python & Django Code Console & Interactive Terminal Modal -->
+  <div class="modal-overlay" id="code-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="code-modal-title">
+    <div class="modal-card code-modal-card">
+      <button class="modal-x" id="code-modal-close" type="button" aria-label="Close Python console">&times;</button>
+      <div class="modal-banner">
+        <span class="modal-kicker">INTERACTIVE DEVELOPER CONSOLE</span>
+        <h3 id="code-modal-title">Python Interactive Terminal &amp; Code Architecture</h3>
+        <div class="code-tabs" role="tablist">
+          <button type="button" class="code-tab active" data-snippet="terminal">Interactive Terminal</button>
+          <button type="button" class="code-tab" data-snippet="crud">study_crud.py</button>
+          <button type="button" class="code-tab" data-snippet="drf">drf_api.py</button>
+          <button type="button" class="code-tab" data-snippet="ml">ml_anomaly.py</button>
+        </div>
+      </div>
+      <div class="modal-content">
+        <!-- Interactive Terminal Panel -->
+        <div class="terminal-shell" id="terminal-shell">
+          <div class="terminal-screen" id="terminal-screen">
+            <div class="terminal-banner">Python 3.12.0 (main, Luxury Shell: suhana-portfolio) [GCC 11.2.0]
+Type "help" to see available commands or try: "whoami", "skills", "projects", "contact", "clear"</div>
+            <div id="terminal-log" class="terminal-log"></div>
+            <div class="terminal-input-row">
+              <span class="terminal-prompt">&gt;&gt;&gt;&nbsp;</span>
+              <input type="text" id="terminal-cli-input" class="terminal-cli-input" placeholder="type a command (e.g. whoami) and press Enter..." spellcheck="false" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Viewer Panel -->
+        <div class="code-viewer-shell" id="code-viewer-shell" style="display: none;">
+          <pre class="code-viewer" id="code-viewer"></pre>
+          <div class="code-toolbar">
+            <button type="button" class="btn btn-lime btn-sm" id="run-api-sim">&#9654; Run Endpoint Simulation</button>
+            <button type="button" class="btn btn-glass btn-sm" id="copy-code-btn">Copy Snippet</button>
+          </div>
+          <pre class="code-output" id="code-output">Click "Run Endpoint Simulation" to test a sample JSON response...</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- GSAP & ScrollTrigger Animation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
