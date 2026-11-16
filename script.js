@@ -579,16 +579,74 @@ Focus    : Scalable RESTful backend architectures, relational MySQL schemas, and
     });
   });
 
-  // 6. Mailto form
-  document.getElementById("contact-form")?.addEventListener("submit", (e) => {
+  // 6. Contact form submission via Web3Forms API
+  const contactForm = document.getElementById("contact-form");
+  const contactSubmitBtn = document.getElementById("contact-submit-btn");
+
+  contactForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const name = document.getElementById("sender-name")?.value.trim() || "";
-    const email = document.getElementById("sender-email")?.value.trim() || "";
-    const msg = document.getElementById("sender-msg")?.value.trim() || "";
-    const subject = encodeURIComponent(`Python Developer Inquiry from ${name}`);
-    const body = encodeURIComponent(`Name/Company: ${name}\nReply Email: ${email}\n\n${msg}`);
-    window.location.href = `mailto:suhanax264@gmail.com?subject=${subject}&body=${body}`;
-    showToast("Opening email draft...");
+    const nameInput = document.getElementById("sender-name");
+    const emailInput = document.getElementById("sender-email");
+    const msgInput = document.getElementById("sender-msg");
+
+    const name = nameInput?.value.trim() || "";
+    const email = emailInput?.value.trim() || "";
+    const msg = msgInput?.value.trim() || "";
+
+    if (!name || !email || !msg) {
+      showToast("Please fill in all fields.");
+      return;
+    }
+
+    const originalBtnText = contactSubmitBtn ? contactSubmitBtn.innerHTML : "Send Inquiry &rarr;";
+    if (contactSubmitBtn) {
+      contactSubmitBtn.disabled = true;
+      contactSubmitBtn.innerHTML = "Sending Inquiry...";
+    }
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "2297b289-a98b-4318-a543-2bd9e15edd86",
+          name: name,
+          email: email,
+          message: msg,
+          subject: `Portfolio Inquiry from ${name}`,
+          from_name: name,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200 && result.success) {
+        showToast("Message sent successfully! Suhana will reply soon.");
+        contactForm.reset();
+        if (contactSubmitBtn) {
+          contactSubmitBtn.innerHTML = "Sent Successfully! ✓";
+          setTimeout(() => {
+            contactSubmitBtn.innerHTML = originalBtnText;
+            contactSubmitBtn.disabled = false;
+          }, 3000);
+        }
+      } else {
+        throw new Error(result.message || "Failed to send message.");
+      }
+    } catch (err) {
+      console.error("Web3Forms submission error:", err);
+      showToast("Could not send directly. Opening email draft...");
+      const subject = encodeURIComponent(`Python Developer Inquiry from ${name}`);
+      const body = encodeURIComponent(`Name/Company: ${name}\nReply Email: ${email}\n\n${msg}`);
+      window.location.href = `mailto:suhanax264@gmail.com?subject=${subject}&body=${body}`;
+      if (contactSubmitBtn) {
+        contactSubmitBtn.innerHTML = originalBtnText;
+        contactSubmitBtn.disabled = false;
+      }
+    }
   });
 
   // 7. Scroll Progress & 3D Scroll Reveals

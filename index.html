@@ -847,12 +847,15 @@
             </div>
           </div>
 
-          <form class="contact-form" id="contact-form">
+          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="2297b289-a98b-4318-a543-2bd9e15edd86" />
+            <input type="hidden" name="subject" value="New Portfolio Inquiry for Suhana N" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
             <h3>Send an Inquiry</h3>
-            <input type="text" id="sender-name" placeholder="Your Name / Organization" required />
-            <input type="email" id="sender-email" placeholder="Your Email" required />
-            <textarea id="sender-msg" rows="4" placeholder="Tell SUHANA.N about the Python Developer opportunity..." required></textarea>
-            <button type="submit" class="btn btn-lime">Send Inquiry &rarr;</button>
+            <input type="text" id="sender-name" name="name" placeholder="Your Name / Organization" required />
+            <input type="email" id="sender-email" name="email" placeholder="Your Email" required />
+            <textarea id="sender-msg" name="message" rows="4" placeholder="Tell SUHANA.N about the Python Developer opportunity..." required></textarea>
+            <button type="submit" id="contact-submit-btn" class="btn btn-lime">Send Inquiry &rarr;</button>
           </form>
         </div>
       </div>
