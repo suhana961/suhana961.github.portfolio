@@ -375,7 +375,7 @@ Focus    : Scalable RESTful backend architectures, relational MySQL schemas, and
 4. VERBALENS Assistive AI        [ESP32 • Deepgram Speech-to-Text • Micro-OLED]`,
     contact: () => `COMMUNICATION CHANNELS:
 • Email    : suhanax264@gmail.com
-• LinkedIn : https://www.linkedin.com/in/suhana-noushad/
+• LinkedIn : https://www.linkedin.com/in/suhana-n-843043284/
 • GitHub   : https://github.com/suhana961
 • Status   : Open to Python Developer opportunities.`,
     resume: () => {
@@ -392,8 +392,8 @@ Focus    : Scalable RESTful backend architectures, relational MySQL schemas, and
       return "Navigating to https://github.com/suhana961...";
     },
     linkedin: () => {
-      window.open("https://www.linkedin.com/in/suhana-noushad/", "_blank");
-      return "Navigating to https://www.linkedin.com/in/suhana-noushad/...";
+      window.open("https://www.linkedin.com/in/suhana-n-843043284/", "_blank");
+      return "Navigating to https://www.linkedin.com/in/suhana-n-843043284/...";
     },
     date: () => new Date().toString(),
     clear: () => {
